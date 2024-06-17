@@ -32,6 +32,8 @@ import * as moment from 'moment';
 import {OwnerService} from '../../owners/owner.service';
 import {PetService} from '../../pets/pet.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-visit-edit',
   templateUrl: './visit-edit.component.html',
@@ -74,6 +76,10 @@ export class VisitEditComponent implements OnInit {
         )
       },
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(visit: Visit) {

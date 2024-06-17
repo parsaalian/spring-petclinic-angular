@@ -38,7 +38,7 @@
       <div class="form-group has-feedback" [class.has-success]="name.dirty && name.valid" [class.has-error]="name.dirty &&  !name.valid">
         <label for="name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-          <input id="name" name="name" class="form-control" required type="text" [(ngModel)]="pet.name" #name="ngModel"/>
+          <input id="name" name="name" class="form-control" required type="text" [(ngModel)]="pet.name" #name="ngModel" (ngModelChange)="log('t7-pet-edit-name')"/>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="name.valid" [class.glyphicon-remove]="!name.valid" aria-hidden="true"></span>
           <span class="help-block" *ngIf="name.dirty && name.hasError('required')">Name is required</span>
           <span class="help-block" *ngIf="name.dirty && name.hasError('minlength')">Name must be at least 2 characters long</span>
@@ -48,7 +48,7 @@
       <div class="form-group has-feedback" [class.has-success]="birthDate.dirty && birthDate.valid" [class.has-error]="birthDate.dirty && !birthDate.valid">
         <label class="col-sm-2 control-label">Birth Date</label>
         <div class="col-sm-10">
-        <input matInput [matDatepicker]="birthDateDatepicker"  required [ngModel]="pet.birthDate | date:'yyyy-MM-dd'" name="birthDate" #birthDate="ngModel">
+        <input matInput [matDatepicker]="birthDateDatepicker"  required [ngModel]="pet.birthDate | date:'yyyy-MM-dd'" name="birthDate" #birthDate="ngModel" (ngModelChange)="log('t8-pet-edit-birth-date')">
         <mat-datepicker-toggle matSuffix [for]="birthDateDatepicker"></mat-datepicker-toggle>
         <mat-datepicker #birthDateDatepicker></mat-datepicker>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="birthDate.valid" [class.glyphicon-remove]="!birthDate.valid" aria-hidden="true"></span>
@@ -64,7 +64,7 @@
               <input id="type1" name="type1" class="form-control" type="text" value="{{ currentType.name }}" readonly/>
             </div>
             <div class="col-sm-8">
-              <select id="type" name="pettype" class="form-control" required [(ngModel)]="currentType"  #pettype="ngModel">
+              <select id="type" name="pettype" class="form-control" required [(ngModel)]="currentType"  #pettype="ngModel" (ngModelChange)="log('s1-pet-edit-type')">
                 <option *ngFor="let type of petTypes"
                         [selected]="type.id === currentType.id ? true : null"
                         [ngValue]="type">{{ type.name }}
@@ -81,8 +81,8 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <br/>
-          <button class="btn btn-default" type="button" (click)="gotoOwnerDetail(pet.owner)">< Back</button>
-          <button class="btn btn-default" type="submit">Update Pet</button>
+          <button class="btn btn-default" type="button" (click)="gotoOwnerDetail(pet.owner); log('c18-pet-edit-back')">< Back</button>
+          <button class="btn btn-default" type="submit" (click)="log('c19-pet-edit-update-pet-submit')">Update Pet</button>
         </div>
       </div>
     </form>

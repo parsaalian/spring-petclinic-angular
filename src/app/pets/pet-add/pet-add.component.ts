@@ -32,6 +32,8 @@ import {OwnerService} from '../../owners/owner.service';
 
 import * as moment from 'moment';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pet-add',
   templateUrl: './pet-add.component.html',
@@ -64,6 +66,10 @@ export class PetAddComponent implements OnInit {
         this.currentOwner = response;
       },
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(pet: Pet) {

@@ -25,6 +25,8 @@ import {OwnerService} from '../owner.service';
 import {Owner} from '../owner';
 import {Router} from '@angular/router';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-owner-add',
   templateUrl: './owner-add.component.html',
@@ -40,6 +42,10 @@ export class OwnerAddComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(owner: Owner) {

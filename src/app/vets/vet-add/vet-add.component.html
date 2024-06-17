@@ -26,7 +26,7 @@
       <div class="form-group has-feedback" [class.has-success]="firstName.dirty && firstName.valid" [class.has-error]="firstName.dirty &&  !firstName.valid">
         <label for="firstName" class="col-sm-2 control-label">First Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstName" [(ngModel)]="vet.firstName" minlength="2" required name="firstName" #firstName="ngModel"/>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="vet.firstName" minlength="2" required name="firstName" #firstName="ngModel" (ngModelChange)="log('t22-vet-add-first-name')"/>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="firstName.valid" [class.glyphicon-remove]="!firstName.valid" aria-hidden="true"></span>
           <span class="help-block" *ngIf="(vetForm.submitted && firstName.hasError('required')) || (firstName.dirty && firstName.hasError('required'))">First name is required</span>
           <span class="help-block" *ngIf="firstName.dirty && firstName.hasError('minlength')">First name must be at least 2 characters long</span>
@@ -35,7 +35,7 @@
       <div class="form-group has-feedback" [class.has-success]="lastName.dirty && lastName.valid" [class.has-error]="lastName.dirty && !lastName.valid">
         <label for="lastName" class="col-sm-2 control-label">Last Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="lastName" [(ngModel)]="vet.lastName" name="lastName" minlength="2" required #lastName="ngModel"/>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="vet.lastName" name="lastName" minlength="2" required #lastName="ngModel" (ngModelChange)="log('t23-vet-add-last-name')"/>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="lastName.valid" [class.glyphicon-remove]="!lastName.valid" aria-hidden="true"></span>
           <span class="help-block" *ngIf="(vetForm.submitted && lastName.hasError('required')) || (lastName.dirty && lastName.hasError('required'))">Last name is required</span>
           <span class="help-block" *ngIf="lastName.dirty && lastName.hasError('minlength')">Last name must be at least 2 characters long</span>
@@ -45,7 +45,7 @@
         <div class="form-group ">
           <label for="specialties" class="col-sm-2 control-label">Type </label>
           <div class="col-sm-10">
-            <select id="specialties" name="specialties" class="form-control" [(ngModel)]="selectedSpecialty">
+            <select id="specialties" name="specialties" class="form-control" [(ngModel)]="selectedSpecialty" (ngModelChange)="log('s4-vet-add-specialties')">
               <option *ngFor="let spec of specialtiesList" [ngValue]="spec">
                 {{ spec.name }}
               </option>
@@ -56,8 +56,8 @@
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <br/>
-          <button class="btn btn-default" type="button" (click)="gotoVetList()">< Back</button>
-          <button class="btn btn-default" type="submit">Save Vet</button>
+          <button class="btn btn-default" type="button" (click)="gotoVetList(); log('c38-vet-add-back')">< Back</button>
+          <button class="btn btn-default" type="submit" (click)="log('c39-vet-add-save-vet-submit')">Save Vet</button>
         </div>
       </div>
     </form>

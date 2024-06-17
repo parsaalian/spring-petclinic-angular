@@ -32,6 +32,8 @@ import {PetTypeService} from '../../pettypes/pettype.service';
 import * as moment from 'moment';
 import {OwnerService} from '../../owners/owner.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pet-edit',
   templateUrl: './pet-edit.component.html',
@@ -73,6 +75,10 @@ export class PetEditComponent implements OnInit {
       },
       error => this.errorMessage = error as any);
 
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(pet: Pet) {

@@ -25,6 +25,8 @@ import {OwnerService} from '../owner.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Owner} from '../owner';
 
+import { logToServer } from 'logger';
+
 
 @Component({
   selector: 'app-owner-detail',
@@ -44,6 +46,10 @@ export class OwnerDetailComponent implements OnInit {
     this.ownerService.getOwnerById(ownerId).subscribe(
       owner => this.owner = owner,
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string) {
+    logToServer(value);
   }
 
   gotoOwnersList() {

@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PetType} from '../pettype';
 import {PetTypeService} from '../pettype.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pettype-add',
   templateUrl: './pettype-add.component.html',
@@ -17,6 +19,10 @@ export class PettypeAddComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(pettype: PetType) {

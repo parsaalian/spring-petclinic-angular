@@ -25,6 +25,8 @@ import {PetType} from '../pettype';
 import {PetTypeService} from '../pettype.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pettype-edit',
   templateUrl: './pettype-edit.component.html',
@@ -43,6 +45,10 @@ export class PettypeEditComponent implements OnInit {
     this.pettypeService.getPetTypeById(pettypeId).subscribe(
       pettype => this.pettype = pettype,
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(pettype: PetType) {

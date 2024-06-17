@@ -27,12 +27,12 @@
         <div class="form-group has-feedback" [class.has-success]="name.dirty && name.valid" [class.has-error]="name.dirty && !name.valid">
           <label class="col-sm-1 control-label">Name</label>
           <div class="col-sm-6">
-            <input id="name" name="name" class="form-control" type="text" required [(ngModel)]="specialty.name" #name="ngModel"/>
+            <input id="name" name="name" class="form-control" type="text" required [(ngModel)]="specialty.name" #name="ngModel" (ngModelChange)="log('t26-specialty-edit-name')"/>
             <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="name.valid" [class.glyphicon-remove]="!name.valid" aria-hidden="true"></span>
             <span class="help-block" *ngIf="name.dirty && name.hasError('required')">Name is required</span>
           </div>
-          <button class="btn btn-default" type="submit">Update</button>
-          <button class="btn btn-default" (click)="onBack()">Cancel</button>
+          <button class="btn btn-default" type="submit" (click)="log('c51-specialty-list-update-submit')">Update</button>
+          <button class="btn btn-default" (click)="onBack(); log('c52-specialty-list-cancel')">Cancel</button>
         </div>
       </div>
     </form>

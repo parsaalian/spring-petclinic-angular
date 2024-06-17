@@ -26,6 +26,8 @@ import {Owner} from '../owner';
 import {Router} from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-owner-list',
   templateUrl: './owner-list.component.html',
@@ -40,6 +42,10 @@ export class OwnerListComponent implements OnInit {
 
   constructor(private router: Router, private ownerService: OwnerService) {
 
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   ngOnInit() {

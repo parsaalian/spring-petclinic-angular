@@ -32,6 +32,8 @@ import {Owner} from '../../owners/owner';
 import * as moment from 'moment';
 import {OwnerService} from '../../owners/owner.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-visit-add',
   templateUrl: './visit-add.component.html',
@@ -73,6 +75,10 @@ export class VisitAddComponent implements OnInit {
         )
       },
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(visit: Visit) {

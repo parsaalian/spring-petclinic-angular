@@ -28,6 +28,8 @@ import {SpecialtyService} from '../../specialties/specialty.service';
 import {Specialty} from '../../specialties/specialty';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-vet-edit',
   templateUrl: './vet-edit.component.html',
@@ -48,6 +50,10 @@ export class VetEditComponent implements OnInit {
     this.vet = {} as Vet;
     this.specList = [] as Specialty[];
     this.buildForm();
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   buildForm() {

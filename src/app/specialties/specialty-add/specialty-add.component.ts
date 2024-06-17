@@ -27,6 +27,8 @@ import { NgForm } from '@angular/forms';
 import { Specialty } from '../specialty';
 import { SpecialtyService } from '../specialty.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-specialty-add',
   templateUrl: './specialty-add.component.html',
@@ -44,6 +46,10 @@ export class SpecialtyAddComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  log(value: string): void {
+    logToServer(value);
+  }
 
   onSubmit(specialty: Specialty) {
     this.specialtyService.addSpecialty(specialty).subscribe(

@@ -5,6 +5,8 @@ import {PetTypeService} from '../pettype.service';
 import {Specialty} from '../../specialties/specialty';
 import { finalize } from 'rxjs/operators';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pettype-list',
   templateUrl: './pettype-list.component.html',
@@ -30,6 +32,10 @@ export class PettypeListComponent implements OnInit {
       pettypes => this.pettypes = pettypes,
       error => this.errorMessage = error as any
       );
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   deletePettype(pettype: PetType) {

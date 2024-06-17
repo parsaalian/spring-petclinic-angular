@@ -28,8 +28,8 @@
     <td>{{ visit.date }}</td>
     <td>{{ visit.description }}</td>
     <td>
-      <button class="btn btn-default" (click)="editVisit(visit)">Edit Visit</button>
-      <button class="btn btn-default" (click)="deleteVisit(visit)">Delete Visit</button>
+      <button class="btn btn-default" (click)="editVisit(visit); log('c25-visit-list-edit-visit')">Edit Visit</button>
+      <button class="btn btn-default" (click)="deleteVisit(visit); log('c26-visit-list-delete-visit')">Delete Visit</button>
     </td>
   </tr>
 </table>

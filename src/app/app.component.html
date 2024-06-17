@@ -25,7 +25,7 @@
 
   <ul class="nav navbar-nav">
     <li>
-      <a routerLink="welcome" title="home page">
+      <a routerLink="welcome" title="home page" (click)="log('c1-navbar-home')">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         <span> Home</span>
       </a>
@@ -33,36 +33,36 @@
 
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" role="button"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" (click)="log('c2-navbar-owners')">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Owners<span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a routerLink="/owners"><span class="glyphicon glyphicon-search"
+        <li><a routerLink="/owners" (click)="log('c3-navbar-owners-search')"><span class="glyphicon glyphicon-search"
                                           aria-hidden="true"></span><span> Search</span></a></li>
-        <li><a routerLink="/owners/add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span> Add New</span></a>
+        <li><a routerLink="/owners/add" (click)="log('c4-navbar-owners-add-new')"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span> Add New</span></a>
         </li>
       </ul>
     </li>
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" role="button"
-          aria-haspopup="true" aria-expanded="false">
+          aria-haspopup="true" aria-expanded="false" (click)="log('c5-navbar-vets')">
           <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Veterinarians<span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a routerLink="/vets"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span> All</span></a>
+        <li><a routerLink="/vets" (click)="log('c6-navbar-vets-all')"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span> All</span></a>
         </li>
-        <li><a routerLink="/vets/add"><span class="glyphicon glyphicon-plus"
+        <li><a routerLink="/vets/add" (click)="log('c7-navbar-vets-add-new')"><span class="glyphicon glyphicon-plus"
                                             aria-hidden="true"></span><span> Add New</span></a></li>
       </ul>
     </li>
     <li>
-      <a routerLink="/pettypes" routerLinkActive="active" title="pettypes">
+      <a routerLink="/pettypes" routerLinkActive="active" title="pettypes" (click)="log('c8-navbar-pet-types')">
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         <span> Pet Types</span>
       </a>
     </li>
     <li>
-      <a routerLink="/specialties" routerLinkActive="active" title="specialties">
+      <a routerLink="/specialties" routerLinkActive="active" title="specialties" (click)="log('c9-navbar-specialties')">
         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
         <span> Specialties</span>
       </a>

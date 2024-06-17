@@ -17,10 +17,10 @@
         <div class="form-group">
           <label class="col-sm-1 control-label">Name</label>
           <div class="col-sm-6">
-            <input id="name" name="name" class="form-control" type="text" [(ngModel)]="speciality.name" #specialityName="ngModel" />
+            <input id="name" name="name" class="form-control" type="text" [(ngModel)]="speciality.name" #specialityName="ngModel" (ngModelChange)="log('t27-specialty-add-name')" />
             <span class="help-block" *ngIf="specialityForm.submitted || specialityName.dirty && specialityName.hasError('required')">Name is required</span>
           </div>
-          <button class="btn btn-default" type="submit">Save</button>
+          <button class="btn btn-default" type="submit" (click)="log('c53-specialty-add-save-submit')">Save</button>
         </div>
       </div>
     </form>

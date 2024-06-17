@@ -27,6 +27,8 @@ import {Vet} from '../vet';
 import {Router} from '@angular/router';
 import {VetService} from '../vet.service';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-vet-add',
   templateUrl: './vet-add.component.html',
@@ -49,6 +51,10 @@ export class VetAddComponent implements OnInit {
       specialties => this.specialtiesList = specialties,
       error => this.errorMessage = error as any
     );
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(vet: Vet) {

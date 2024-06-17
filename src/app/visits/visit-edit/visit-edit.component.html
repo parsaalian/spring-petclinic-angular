@@ -47,7 +47,7 @@
         <div class="form-group has-feedback" [class.has-success]="date.dirty && date.valid" [class.has-error]="date.dirty && !date.valid">
           <label class="col-sm-2 control-label">Date</label>
           <div class="col-sm-10">
-            <input matInput [matDatepicker]="visitDateDatepicker" required [ngModel]="visit.date | date:'yyyy-MM-dd'" name="date" #date="ngModel">
+            <input matInput [matDatepicker]="visitDateDatepicker" required [ngModel]="visit.date | date:'yyyy-MM-dd'" name="date" #date="ngModel" (ngModelChange)="log('t13-visit-edit-visit-date')">
             <mat-datepicker-toggle matSuffix [for]="visitDateDatepicker"></mat-datepicker-toggle>
             <mat-datepicker #visitDateDatepicker></mat-datepicker>
             <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="date.valid" [class.glyphicon-remove]="!date.valid" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
           <label class="col-sm-2 control-label">Description</label>
           <div class="col-sm-10">
             <input id="description" name="description" class="form-control" type="text" required
-                   [(ngModel)]="visit.description" #description="ngModel"/>
+                   [(ngModel)]="visit.description" #description="ngModel" (ngModelChange)="log('t14-visit-edit-visit-description')"/>
             <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="description.valid" [class.glyphicon-remove]="!description.valid" aria-hidden="true"></span>
             <span class="help-block" *ngIf="description.dirty && description.hasError('required')">Description is required</span>
 
@@ -70,8 +70,8 @@
         <div class="col-sm-offset-2 col-sm-10">
           <input type="hidden" name="id" id="id" [(ngModel)]="visit.id"/>
           <input type="hidden" name="pet" id="pet" [(ngModel)]="visit.pet"/>
-          <button class="btn btn-default" type="button" (click)="gotoOwnerDetail()">Back</button>
-          <button class="btn btn-default" type="submit">Update Visit</button>
+          <button class="btn btn-default" type="button" (click)="gotoOwnerDetail(); log('c28-visit-edit-back')">Back</button>
+          <button class="btn btn-default" type="submit" (click)="log('c29-visit-edit-update-visit-submit')">Update Visit</button>
         </div>
       </div>
     </form>

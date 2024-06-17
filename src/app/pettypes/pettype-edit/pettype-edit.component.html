@@ -27,12 +27,12 @@
         <div class="form-group ">
           <label class="col-sm-1 control-label">Name</label>
           <div class="col-sm-6">
-            <input id="name" name="name" class="form-control" required type="text" [(ngModel)]="pettype.name" #name="ngModel"/>
+            <input id="name" name="name" class="form-control" required type="text" [(ngModel)]="pettype.name" #name="ngModel" (ngModelChange)="log('t24-pettype-edit-name')"/>
             <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="name.valid" [class.glyphicon-remove]="!name.valid" aria-hidden="true"></span>
             <span class="help-block" *ngIf="name.dirty && name.hasError('required')">Name is required</span>
           </div>
-          <button class="btn btn-default" type="submit">Update</button>
-          <button class="btn btn-default" (click)="onBack()">Cancel</button>
+          <button class="btn btn-default" type="submit" (click)="log('c44-pettype-edit-update-submit')">Update</button>
+          <button class="btn btn-default" (click)="onBack(); log('c45-pettype-edit-cancel')">Cancel</button>
         </div>
       </div>
     </form>

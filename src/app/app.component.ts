@@ -21,6 +21,7 @@
  */
 
 import {Component} from '@angular/core';
+import { logToServer } from 'logger';
 
 @Component({
   selector: 'app-root',
@@ -28,5 +29,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  log(value: any) {
+    logToServer(value);
+  }
 }

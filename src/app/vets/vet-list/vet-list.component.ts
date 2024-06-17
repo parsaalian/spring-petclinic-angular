@@ -26,6 +26,8 @@ import {VetService} from '../vet.service';
 import {Router} from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-vet-list',
   templateUrl: './vet-list.component.html',
@@ -49,6 +51,10 @@ export class VetListComponent implements OnInit {
     ).subscribe(
       vets => this.vets = vets,
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   deleteVet(vet: Vet) {

@@ -25,6 +25,8 @@ import {Visit} from '../visit';
 import {VisitService} from '../visit.service';
 import {Router} from '@angular/router';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-visit-list',
   templateUrl: './visit-list.component.html',
@@ -42,6 +44,10 @@ export class VisitListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   editVisit(visit: Visit) {

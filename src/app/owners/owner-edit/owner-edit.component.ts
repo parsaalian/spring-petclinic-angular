@@ -25,6 +25,8 @@ import { OwnerService } from '../owner.service';
 import { Owner } from '../owner';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-owner-edit',
   templateUrl: './owner-edit.component.html',
@@ -50,8 +52,12 @@ export class OwnerEditComponent implements OnInit {
     );
   }
 
+  log(value: string) {
+    logToServer(value);
+  }
+
   onSubmit(owner: Owner) {
-    const that = this;  
+    const that = this;
     const ownerId = this.route.snapshot.params.id;
     this.ownerService.updateOwner(ownerId , owner).subscribe(
       (res) => this.gotoOwnerDetail(owner),

@@ -26,6 +26,8 @@ import {Router} from '@angular/router';
 import {PetService} from '../pet.service';
 import {Pet} from '../pet';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-pet-list',
   templateUrl: './pet-list.component.html',
@@ -42,6 +44,10 @@ export class PetListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   editPet(pet: Pet) {

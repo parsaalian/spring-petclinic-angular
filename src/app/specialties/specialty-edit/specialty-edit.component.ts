@@ -25,6 +25,8 @@ import {Specialty} from '../specialty';
 import {SpecialtyService} from '../specialty.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-specialty-edit',
   templateUrl: './specialty-edit.component.html',
@@ -43,6 +45,10 @@ export class SpecialtyEditComponent implements OnInit {
     this.specialtyService.getSpecialtyById(specId).subscribe(
       specialty => this.specialty = specialty,
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   onSubmit(specialty: Specialty) {

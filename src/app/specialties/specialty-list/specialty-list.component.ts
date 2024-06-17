@@ -26,6 +26,8 @@ import {SpecialtyService} from '../specialty.service';
 import {Router} from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
+import { logToServer } from 'logger';
+
 @Component({
   selector: 'app-specialty-list',
   templateUrl: './specialty-list.component.html',
@@ -50,6 +52,10 @@ export class SpecialtyListComponent implements OnInit {
     ).subscribe(
       specialties => this.specialties = specialties,
       error => this.errorMessage = error as any);
+  }
+
+  log(value: string): void {
+    logToServer(value);
   }
 
   deleteSpecialty(specialty: Specialty) {

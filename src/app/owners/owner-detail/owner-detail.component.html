@@ -41,9 +41,9 @@
       </tr>
     </table>
 
-    <button class="btn btn-default" (click)="gotoOwnersList()">Back</button>
-    <button class="btn btn-default" (click)="editOwner()">Edit Owner</button>
-    <button class="btn btn-default" (click)="addPet(owner)">Add New Pet</button>
+    <button class="btn btn-default" (click)="gotoOwnersList(); log('c13-owner-details-back')">Back</button>
+    <button class="btn btn-default" (click)="editOwner(); log('c14-owner-details-edit-owner')">Edit Owner</button>
+    <button class="btn btn-default" (click)="addPet(owner); log('c15-owner-details-add-new-pet')">Add New Pet</button>
 
     <br />
     <br />
